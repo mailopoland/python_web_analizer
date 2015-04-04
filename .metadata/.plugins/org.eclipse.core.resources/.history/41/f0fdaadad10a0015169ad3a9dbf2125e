@@ -1,0 +1,12 @@
+#standard python libs
+import os.path
+
+from webmonitoring.settings.settings import Settings
+
+class AdminDeamon():
+    
+    def status(self):
+        if(os.path.isfile(Settings().process())):
+            return "Is running"
+        else:
+            return "Is not running"

@@ -1,0 +1,11 @@
+
+class Settings():
+    
+    def main_path(self):
+        return '/home/user/.webanalizer/'
+    
+    def process(self):
+        return Settings().main_path() + 'webanalizer.pid'
+    
+    def result(self):
+        return Settings().main_path() + 'webanalizer.log'

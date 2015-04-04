@@ -1,0 +1,17 @@
+#standard python libs
+import os.path
+from logic.settings import Settings
+
+class AdminDaemon():
+    
+    def status(self):
+        if(os.path.isfile(Settings().process())):
+            return "Daemon is running"
+        else:
+            return "Daemon is not running"
+        
+    def start(self):
+        os.system("python logic/webdeamon.py start")
+        
+    def stop(self): 
+        os.system("python logic/webdeamon.py stop")

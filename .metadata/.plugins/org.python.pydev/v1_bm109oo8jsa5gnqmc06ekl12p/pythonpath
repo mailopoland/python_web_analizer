@@ -1,0 +1,10 @@
+/usr/lib64/python2.7
+/usr/lib64/python2.7/plat-linux2
+/usr/lib64/python2.7/lib-dynload
+/usr/lib64/python2.7/site-packages
+/usr/lib64/python2.7/site-packages/gtk-2.0
+/usr/lib/python2.7/site-packages
+/usr/lib/python2.7/site-packages/setuptools-17.0-py2.7.egg
+/usr/lib/python2.7/site-packages/python_daemon-2.0.5-py2.7.egg
+/usr/lib/python2.7/site-packages/lockfile-0.10.2-py2.7.egg
+/home/user/python_workspace/python-daemon-2.0.5/.eggs/docutils-0.12-py2.7.egg

@@ -1,0 +1,17 @@
+#standard python libs
+import os.path
+from settings import Settings
+
+class AdminDaemon():
+    
+    def status(self):
+        if(os.path.isfile(Settings().process())):
+            return "Daemon is running"
+        else:
+            return "Daemon is not running"
+        
+    def start(self):
+        os.system("python webdeamon.py start")
+        
+    def stop(self): 
+        os.system("python webdeamon.py stop")

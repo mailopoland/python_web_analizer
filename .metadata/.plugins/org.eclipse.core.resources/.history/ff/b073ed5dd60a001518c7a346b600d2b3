@@ -1,0 +1,25 @@
+import sys
+from logic.admin_deamon import AdminDeamon
+
+def main(argv):
+    if len(argv) == 1:
+        command = argv[0]
+        if command == 'help':
+            print("Commands:\n"
+                  "help | Display this screen\n"
+                  "status | Display web monitoring deamon status\n"
+                  "start | Start deamon"
+                  "stop | Stop deamon") 
+        elif command == 'status':
+            print(AdminDeamon().status() + '\n')
+        elif command == 'start':
+            AdminDeamon().start()
+        elif command == 'stop':
+            AdminDeamon().stop()
+    else:
+        print("Run program with 'help' to display available commands\n")
+        sys.exit()
+
+if __name__ == "__main__":
+    print("\nWeb monitoring\n--------------")
+    main(sys.argv[1:])

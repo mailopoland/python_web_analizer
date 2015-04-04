@@ -1,0 +1,6 @@
+MODULES_MANAGER_V2
+__init__|/home/user/python_project/python_web_analizer/webmonitoring/__init__.py
+admin_daemon|/home/user/python_project/python_web_analizer/webmonitoring/admin_daemon.py
+settings|/home/user/python_project/python_web_analizer/webmonitoring/settings.py
+webdeamon|/home/user/python_project/python_web_analizer/webmonitoring/webdeamon.py
+webmonitoring|/home/user/python_project/python_web_analizer/webmonitoring/webmonitoring.py
