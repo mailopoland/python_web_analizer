@@ -1,9 +1,1 @@
-INSTUPadmin_daemon
-/home/user/python_project/python_web_analizer/webmonitoring/admin_daemon.py
-INFOS:&&1|1|2|0&&2|3|2|1&&2|4|2|1&&2|5|2|1&&2|6|2|1
-stop=6
-AdminDaemon=1
-start=5
-status=4
-is_running=3
-admin_daemon=2
+DELSTRwebdaemon.webdeamon

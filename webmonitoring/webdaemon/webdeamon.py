@@ -1,10 +1,12 @@
-#standard python libs
 import logging
 import time
+import sys
+import os
+#tell that in webmonitoring folder this module should looking for others modules
+sys.path.append(os.path.join( os.path.dirname(os.path.realpath(__file__)), os.path.pardir))
 
-#third party libs
 from daemon import runner
-from settings import Settings
+from settings.settings import Settings
 
 class Webdeamon():
     

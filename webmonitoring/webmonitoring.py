@@ -1,5 +1,5 @@
 import sys
-from admin_daemon import AdminDaemon
+from webdaemon.admin_daemon import AdminDaemon
 
 def main(argv):
     if len(argv) == 1:
@@ -7,7 +7,7 @@ def main(argv):
         if command == 'help':
             print("Commands:\n"
                   "help | Display this screen\n"
-                  "status | Display web monitoring deamon status\n"
+                  "status | Display web monitoring daemon status\n"
                   "start | Start daemon"
                   "stop | Stop daemon") 
         elif command == 'status':
@@ -16,9 +16,10 @@ def main(argv):
             AdminDaemon().start()
         elif command == 'stop':
             AdminDaemon().stop()
-    else:
-        print("Run program with 'help' to display available commands\n")
-        sys.exit()
+        sys.exit();
+
+    print("Run program with 'help' to display available commands\n")
+    sys.exit(2)
 
 if __name__ == "__main__":
     print("\nWeb monitoring"

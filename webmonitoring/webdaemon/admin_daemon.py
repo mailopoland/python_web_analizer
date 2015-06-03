@@ -2,7 +2,7 @@
 import os.path
 import time
 
-from settings import Settings
+from settings.settings import Settings
 
 class AdminDaemon():
     
