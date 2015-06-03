@@ -19,7 +19,7 @@ def main(argv):
         sys.exit();
 
     print("Run program with 'help' to display available commands\n")
-    sys.exit(2)
+    sys.exit()
 
 if __name__ == "__main__":
     print("\nWeb monitoring"
