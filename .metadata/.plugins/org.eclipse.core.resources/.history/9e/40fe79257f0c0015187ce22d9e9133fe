@@ -1,0 +1,22 @@
+'''
+Created on 6 cze 2015
+
+@author: user
+'''
+from logger import Logger
+from settings.settings import Settings
+
+class SystemLogger(Logger):
+    '''
+    classdocs
+    '''
+
+
+    def __init__(self):
+        settings = Settings()
+        super(SystemLogger, self).__init__(settings.system_errors_name(), settings.system_errors_name())
+    
+    def report(self, txt):
+        self.logger.error(txt)
+        
+        

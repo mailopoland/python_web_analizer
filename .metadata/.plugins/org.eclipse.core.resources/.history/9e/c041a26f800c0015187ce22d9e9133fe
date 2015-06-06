@@ -1,0 +1,47 @@
+'''
+Created on 6 cze 2015
+
+@author: user
+'''
+import urllib3, os.path
+from settings.settings import Settings
+from system_logger import SystemLogger
+
+class PageAnalizer(object):        
+    
+    # return 0: is OK (site was download before), 1: is OK (but site didn't was download before), any_other: return stauts of downloading error
+    def download_site(self,site_url):
+        self.site_url = site_url
+        http = urllib3.PoolManager()
+        r = http.request('GET', 'http://google.com/')
+        if(r.status != 200):
+            return r.status
+        # save downloaded site
+        self.cur_ver = r.data
+        last_file = Settings().temp_dir() + site_url.replace('/','|') + "last"
+        
+        is_first_exe = True
+        
+        # if we have last copy of this site (not first execute)
+        if os.path.isfile(last_file):
+            try:
+                with open(last_file) as f:
+                    # save old version to variable
+                    self.last_ver = f.read().replace('\n', '')
+            except Exception:
+                return "Error during open " + last_file + ". No access permission?"
+            is_first_exe = False
+        # overwrite last_file with current site version (for next daemon iteration)
+        try:
+            with open(last_file, "w+") as f:
+                f.write(self.cur_ver)
+        except Exception:
+            return "Error during save " + last_file + ". No access permission?"
+        
+        if(is_first_exe):
+            return 1
+        else:
+            return 0
+        
+        
+        

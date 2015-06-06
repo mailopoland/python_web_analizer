@@ -1,0 +1,18 @@
+'''
+Created on 6 cze 2015
+
+@author: user
+'''
+from logger import Logger
+
+class SystemLogger(Logger):
+    '''
+    classdocs
+    '''
+
+
+    def __init__(self):
+        '''
+        Constructor
+        '''
+        

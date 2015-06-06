@@ -1,0 +1,16 @@
+'''
+Created on 6 cze 2015
+
+@author: user
+'''
+import urllib3
+
+class PageAnalizer():
+
+
+    def __init__(self):
+        
+    
+    def download_site(self,site_url):
+   # def 
+        

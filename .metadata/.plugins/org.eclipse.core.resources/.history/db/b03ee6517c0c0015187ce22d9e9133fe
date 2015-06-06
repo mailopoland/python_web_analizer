@@ -1,0 +1,23 @@
+'''
+Created on 6 cze 2015
+
+@author: user
+'''
+from settings.settings import Settings
+import logging
+
+class Logger():
+    '''
+    classdocs
+    '''
+
+
+    def __init__(self, file_name):
+        self.dir = Settings().result_dir()
+        logger = logging.getLogger("DaemonLog")
+        logger.setLevel(logging.INFO)
+        formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+        handler = logging.FileHandler(Settings().result())
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+        

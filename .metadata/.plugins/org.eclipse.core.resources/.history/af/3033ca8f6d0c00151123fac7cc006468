@@ -1,0 +1,20 @@
+'''
+Created on 6 cze 2015
+
+@author: user
+'''
+import sys
+import os
+#tell that in webmonitoring folder this module should looking for others modules
+sys.path.append(os.path.join( os.path.dirname(os.path.realpath(__file__)), os.path.pardir))
+class PageAnalizer():
+    '''
+    classdocs
+    '''
+
+
+    def __init__(self):
+        '''
+        Constructor
+        '''
+        

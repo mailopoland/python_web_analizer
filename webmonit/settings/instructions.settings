@@ -1,0 +1,37 @@
+# ------------------------------------------------
+# INSTRUCTION HAVE TO LOOK LIKE:
+# [website adress]
+# [name of file which contains result of monitoring the website]
+# (any numbers of lines described below:)
+# \ [one or more of available check instuctions] : [one of available result instuctions]
+# ------------------------------------------------
+# Available check instructions:
+# SITE_CHANGED() <- do result action if site is changed
+# CONTAINS("any text") <- do result action if site contains "any text"
+# ------------------------------------------------
+# Available result instructions:
+# MESSAGE("any text") <- write to result file message "any tex"
+# ------------------------------------------------
+# To use in check instructions negation or more than one instructions you have to use logical operators: 'not(content)', 'or', 'and' and parentheses: '(', ')'
+# For example this line is correct: 
+# / SITE_CHANGED() and not(CONTAINS("Bad request"))  : MESSAGE("We have a change!")
+# ------------------------------------------------
+# Example (to worinkg remove '# '):
+# http://site.com/index.html
+# index.log
+# \ SITE_CHANGED() : MESSAGE("We have a change!")
+# \ CONTAINS("Important data") : MESSAGE("Still has important data")
+# http://site.pl/advanced.html
+# adv.log
+# \ SITE CHANGED() : MESSAGE("Advanced change")
+# ------------------------------------------------
+# REMEMBER:
+# WHITE CHARACTERS IN WEBSITE ADRESS AND RESULT FILE NAME ARE FORBRIDDEN
+# YOU CANNOT PUT ANY COMMENTS OR EMPTY LINE BELOW:
+# ------------------------------------------------
+http://localhost:63342/www_dla_webmonitoringu/src/index.html
+index.log
+\ SITE_CHANGED() : MESSAGE("Zmienila sie strona index")
+http://localhost:63342/www_dla_webmonitoringu/src/advanced.html
+adv.log
+\ SITE CHANGED() : MESSAGE("Zmienila sie strona adv")

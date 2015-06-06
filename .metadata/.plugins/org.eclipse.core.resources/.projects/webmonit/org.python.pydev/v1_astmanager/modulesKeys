@@ -1,0 +1,15 @@
+MODULES_MANAGER_V2
+__init__|/home/user/python_project/python_web_analizer/webmonit/webanalizer/__init__.py
+allsites_analizer|/home/user/python_project/python_web_analizer/webmonit/webanalizer/allsites_analizer.py
+logger|/home/user/python_project/python_web_analizer/webmonit/loggers/logger.py
+page_analizer|/home/user/python_project/python_web_analizer/webmonit/webanalizer/page_analizer.py
+result.__init__|/home/user/python_project/python_web_analizer/webmonit/result/__init__.py
+settings.__init__|/home/user/python_project/python_web_analizer/webmonit/settings/__init__.py
+settings.settings|/home/user/python_project/python_web_analizer/webmonit/settings/settings.py
+settings_handler|/home/user/python_project/python_web_analizer/webmonit/webanalizer/settings_handler.py
+system_logger|/home/user/python_project/python_web_analizer/webmonit/loggers/system_logger.py
+temp.__init__|/home/user/python_project/python_web_analizer/webmonit/temp/__init__.py
+webdaemon.__init__|/home/user/python_project/python_web_analizer/webmonit/webdaemon/__init__.py
+webdaemon.admin_daemon|/home/user/python_project/python_web_analizer/webmonit/webdaemon/admin_daemon.py
+webdaemon.webdaemon|/home/user/python_project/python_web_analizer/webmonit/webdaemon/webdaemon.py
+webmonitoring|/home/user/python_project/python_web_analizer/webmonit/webmonitoring.py

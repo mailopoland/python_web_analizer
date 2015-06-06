@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;webmonitoring/settings/commands.settings&apos; to &apos;instructions.settings&apos;" description="Rename resource &apos;commands.settings&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="settings/commands.settings" name="instructions.settings" stamp="1433583705786" updateReferences="true"/>
+</session>

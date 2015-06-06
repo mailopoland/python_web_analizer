@@ -1,0 +1,81 @@
+'''
+Settings handler, it interpret commands.settings from settings. 
+It is here because only webanalizer need this interpretation.
+'''
+from settings.settings import Settings
+
+class SettingsHandler():
+    '''
+    After create SettingsHandler object self.instructions has dictionary contains all important webanalizing settings:
+    self.instructions["site address"]["name of result file"] <- it's array
+    the array contains tuples ("check actions as string", "result action as string")
+    '''
+
+
+    def __init__(self):
+        with open( Settings().instructions() ) as instr:
+            result = self.__parse_instructions__(instr)
+            if not(result[0] == 0):
+                if result[0] == 1:
+                    error = "Error in " + Settings().instructions() + " file at line " + str(result[1]) + ". No find or wrong file to save result."
+                elif result[0] == 2:
+                    error = "Error in " + Settings().instructions() + " file at line " + str(result[1]) + ". No find or wrong commands for defined website."
+                elif result[0] == 3:
+                    error = "Unknown error during parse " + Settings().instructions() + " file at line " + str(result[1]) + "."
+                else:
+                    error = "Unknown error during parse " + Settings().instructions() + " file."
+                raise SyntaxError(error)
+                
+        
+    # polute self.instructions
+    # return tuple (result_code, if result is wrong wrong line's number)   
+    # result_code: 0 - OK, 1 - no find or wrong file to save, 2 - no find or wrong commands, 3 
+    def __parse_instructions__(self, instr):
+        self.instructions = dict()
+        content = instr.readlines()
+        lencont = len(content)
+        it = 0
+        try:
+            # skip comments
+            while(it < lencont and len(content[it]) > 1 and content[it][0] == '#'):
+                it += 1
+            while it < lencont:
+                    
+                cur_page = content[it]
+                it += 1
+                # no more els, it is error here, should be result file name
+                if(it == lencont):
+                    return (1,it)
+                cur_result = content[it]
+                it += 1
+                
+                # populate main dict if page not exsist, it contains result dicts (with commands)
+                if not(cur_page in self.instructions):
+                    self.instructions[cur_page] = dict()
+                
+                # create result dict if it not exsist, it contains commands
+                if not(cur_result in self.instructions[cur_page]):
+                    self.instructions[cur_page][cur_result] = []
+                    
+                
+                self.instructions[cur_page][cur_result]
+                while(it < lencont and content[it][0] == '/' ):
+                    separator = content[it].index('/')
+                    # if it not has separator or not has result action after separator
+                    if( separator == -1 or separator + 1 > len(content[it]) ):
+                        return (2,it)
+                    command = content[it][0:separator]
+                    result = content[it][separator + 1:]
+                    self.instructions[cur_page][cur_result].append((command,result))
+                    it += 1
+        except Exception:
+            return(3,it)
+        # it means operation finish with success
+        return (0,0)
+            
+        
+        
+                
+                        
+            
+        

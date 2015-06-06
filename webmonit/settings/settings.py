@@ -1,0 +1,28 @@
+import os
+
+class Settings(object):
+    
+    #return parh to parent dir (webmonitoring dir)
+    def __main_path__(self):
+        return os.path.join( os.path.dirname(os.path.realpath(__file__)), os.path.pardir) + "/"
+    
+    def process(self):
+        return self.__main_path__() + 'temp/webanalizer.pid'
+    
+    def result(self):
+        return self.__main_path__() + 'result/webanalizer.log'
+    
+    def result_dir(self):
+        return self.__main_path__() + 'result/'
+    
+    def webdaemon(self):
+        return self.__main_path__() + 'webdaemon/webdaemon.py'
+    
+    def instructions(self):
+        return self.__main_path__() + 'settings/instructions.settings'
+    
+    def temp_dir(self):
+        return self.__main_path__() + 'temp/'
+    
+    def system_errors_name(self):
+        return "system_errors"

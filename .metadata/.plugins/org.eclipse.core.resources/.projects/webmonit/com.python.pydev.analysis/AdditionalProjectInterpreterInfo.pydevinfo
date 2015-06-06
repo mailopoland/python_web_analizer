@@ -1,0 +1,100 @@
+-- VERSION_4
+-- START DISKCACHE
+/home/user/python_project/python_web_analizer/.metadata/.plugins/org.eclipse.core.resources/.projects/webmonit/com.python.pydev.analysis/v2_indexcache
+settings.__init__|1433432635000|/home/user/python_project/python_web_analizer/webmonit/settings/__init__.py
+allsites_analizer|1433611728000|/home/user/python_project/python_web_analizer/webmonit/webanalizer/allsites_analizer.py
+webanalizer.settings_handler|1433620608000|/home/user/python_project/python_web_analizer/webmonit/webanalizer/settings_handler.py
+settings_handler|1433613312000|/home/user/python_project/python_web_analizer/webmonit/webanalizer/settings_handler.py
+page_analizer|1433614749000|/home/user/python_project/python_web_analizer/webmonit/webanalizer/page_analizer.py
+webanalizer.page_analizer|1433622751000|/home/user/python_project/python_web_analizer/webmonit/webanalizer/page_analizer.py
+loggers.system_logger|1433620550000|/home/user/python_project/python_web_analizer/webmonit/loggers/system_logger.py
+system_logger|1433620550000|/home/user/python_project/python_web_analizer/webmonit/loggers/system_logger.py
+webdaemon.admin_daemon|1433617116000|/home/user/python_project/python_web_analizer/webmonit/webdaemon/admin_daemon.py
+__init__|1433432635000|/home/user/python_project/python_web_analizer/webmonit/webanalizer/__init__.py
+webanalizer.allsites_analizer|1433622755000|/home/user/python_project/python_web_analizer/webmonit/webanalizer/allsites_analizer.py
+result.__init__|1433432635000|/home/user/python_project/python_web_analizer/webmonit/result/__init__.py
+webdaemon.webdaemon|1433622870000|/home/user/python_project/python_web_analizer/webmonit/webdaemon/webdaemon.py
+loggers.logger|1433617968000|/home/user/python_project/python_web_analizer/webmonit/loggers/logger.py
+temp.__init__|1433432635000|/home/user/python_project/python_web_analizer/webmonit/temp/__init__.py
+settings.settings|1433617454000|/home/user/python_project/python_web_analizer/webmonit/settings/settings.py
+logger|1433617968000|/home/user/python_project/python_web_analizer/webmonit/loggers/logger.py
+webdaemon.__init__|1433432635000|/home/user/python_project/python_web_analizer/webmonit/webdaemon/__init__.py
+webmonitoring|1433617423000|/home/user/python_project/python_web_analizer/webmonit/webmonitoring.py
+-- END DISKCACHE
+-- START DICTIONARY
+29
+20=AllsitesAnalizer
+11=settings_handler
+9=page_analizer
+19=Logger
+8=webanalizer.page_analizer
+14=loggers.system_logger
+16=SettingsHandler
+13=system_logger
+29=AllsitesAnalizer.__init__
+28=Webdaemon.__init__
+26=AdminDaemon
+6=loggers.logger
+25=SettingsHandler.__parse_instructions__
+5=logger
+21=Settings
+2=allsites_analizer
+10=webanalizer.settings_handler
+23=PageAnalizer.__download_site__
+18=Webdaemon
+1=webdaemon.admin_daemon
+24=PageAnalizer.download_site
+3=webanalizer.allsites_analizer
+4=webdaemon.webdaemon
+15=PageAnalizer
+22=AllsitesAnalizer.get_system_logger
+12=settings.settings
+27=Logger.__init__
+7=webmonitoring
+17=SystemLogger
+-- END DICTIONARY
+-- START TREE 1
+10
+adm|1|AdminDaemon!9@
+all|2|AllsitesAnalizer!17@AllsitesAnalizer!25@
+app|1|app!35@
+dae|1|daemon_runner!35@
+log|2|Logger!41@Logger!49@
+mai|1|main!58@
+pag|2|PageAnalizer!65@PageAnalizer!73@
+set|3|SettingsHandler!81@SettingsHandler!89@Settings!97@
+sys|2|SystemLogger!105@SystemLogger!113@
+web|1|Webdaemon!33@
+-- END TREE
+-- START TREE 2
+29
+!<m|0|
+__d|1|__download_site__!15&66@
+__i|9|__init__!16&82@__init__!17&114@__init__!18&34@__init__!19&42@__init__!19&50@__init__!16&90@__init__!17&106@__init__!20&26@__init__!20&18@
+__m|1|__main_path__!21&98@
+__p|2|__parse_instructions__!16&90@__parse_instructions__!16&82@
+__s|1|__system_logger__!22&27@
+ana|0|
+che|1|check!15&66@
+cur|2|cur_ver!23&67@cur_ver!24&75@
+dir|0|
+dow|1|download_site!15&74@
+get|1|get_system_logger!20&26@
+ins|3|instructions!25&91@instructions!25&83@instructions!21&98@
+is_|1|is_running!26&10@
+las|2|last_ver!23&67@last_ver!24&75@
+log|2|logger!27&51@logger!27&43@
+pid|2|pidfile_timeout!28&35@pidfile_path!28&35@
+pro|1|process!21&98@
+rap|0|
+rep|4|report!19&50@report_error!17&114@report!19&42@report_error!17&106@
+res|3|result_dir!21&98@result!21&98@result_cmd!15&66@
+run|1|run!18&34@
+sit|4|site_url!24&75@sites!29&19@site_url!23&67@sites!29&27@
+sta|2|start!26&10@status!26&10@
+std|3|stdout_path!28&35@stderr_path!28&35@stdin_path!28&35@
+sto|1|stop!26&10@
+sys|1|system_errors_name!21&98@
+tem|1|temp_dir!21&98@
+web|1|webdaemon!21&98@
+-- END TREE

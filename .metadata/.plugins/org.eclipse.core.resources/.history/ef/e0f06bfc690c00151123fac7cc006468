@@ -1,0 +1,17 @@
+'''
+Created on 6 cze 2015
+
+@author: user
+'''
+
+class Webanalizer():
+    '''
+    classdocs
+    '''
+
+
+    def __init__(self, webname):
+        '''
+        Constructor
+        '''
+        

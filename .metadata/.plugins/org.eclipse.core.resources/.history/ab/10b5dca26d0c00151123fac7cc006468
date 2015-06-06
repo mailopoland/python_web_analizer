@@ -1,0 +1,21 @@
+import os
+import sys
+#tell that in webmonitoring folder this module should looking for others modules
+sys.path.append(os.path.join( os.path.dirname(os.path.realpath(__file__)), os.path.pardir))
+class Settings():
+    
+    #return parh to parent dir (webmonitoring dir)
+    def __main_path__(self):
+        return os.path.join( os.path.dirname(os.path.realpath(__file__)), os.path.pardir) + "/"
+    
+    def process(self):
+        return self.__main_path__() + 'temp/webanalizer.pid'
+    
+    def result(self):
+        return self.__main_path__() + 'result/webanalizer.log'
+    
+    def webdeamon(self):
+        return self.__main_path__() + 'webdaemon/webdeamon.py'
+    
+    def instructions(self):
+        return self.__main_path__() + 'settings/instructions.settings'
