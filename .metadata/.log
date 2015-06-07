@@ -112,3 +112,411 @@ java.nio.file.AccessDeniedException: /usr/lib/python2.7/site-packages/pylint
 
 !ENTRY org.eclipse.ui 2 2 2015-06-08 01:33:31.456
 !MESSAGE Invalid preference category path: org.eclipse.mylyn.preferencePages.Mylyn (bundle: org.eclipse.mylyn.context.ui, page: org.eclipse.mylyn.context.ui.preferences)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2015-06-08 02:04:21.467
+!MESSAGE Connection to http://pydev.org/updates/p2.index failed on pydev.org: Ta nazwa lub usługa jest nieznana. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: pydev.org: Ta nazwa lub usługa jest nieznana
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$1.lookupAllHostAddr(InetAddress.java:901)
+	at java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1293)
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1246)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1162)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1098)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:278)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:151)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:125)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:643)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:479)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:906)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:805)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1077)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1068)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1064)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2015-06-08 02:04:21.702
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unknown Host: http://pydev.org/updates/content.xml
+	at org.eclipse.equinox.internal.p2.repository.CacheManager.createCache(CacheManager.java:192)
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.getLocalFile(SimpleMetadataRepositoryFactory.java:66)
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:88)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:768)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:668)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:83)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.net.UnknownHostException: pydev.org
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1250)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1162)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1098)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:278)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:294)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:643)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:479)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:906)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:805)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:259)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	... 1 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1006 2015-06-08 02:04:21.702
+!MESSAGE Unknown Host: http://pydev.org/updates/content.xml
+!STACK 0
+java.net.UnknownHostException: pydev.org
+	at java.net.InetAddress.getAllByName0(InetAddress.java:1250)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1162)
+	at java.net.InetAddress.getAllByName(InetAddress.java:1098)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:278)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:294)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:643)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:479)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:906)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:805)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:259)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:07:28.077
+!MESSAGE /usr/lib/python2.7/site-packages/epydoc
+!STACK 0
+java.nio.file.AccessDeniedException: /usr/lib/python2.7/site-packages/epydoc
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:426)
+	at java.nio.file.Files.newDirectoryStream(Files.java:411)
+	at org.python.pydev.shared_core.io.FileUtils.getLastModifiedTimeFromDir(FileUtils.java:867)
+	at org.python.pydev.shared_core.path_watch.EventsStackerRunnable.run(EventsStackerRunnable.java:217)
+	at org.python.pydev.shared_core.path_watch.PathWatch$PollThread.run(PathWatch.java:193)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:23:15.985
+!MESSAGE /usr/lib64/python2.7/site-packages/MarkupSafe-0.23-py2.7.egg-info
+!STACK 0
+java.nio.file.AccessDeniedException: /usr/lib64/python2.7/site-packages/MarkupSafe-0.23-py2.7.egg-info
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:426)
+	at java.nio.file.Files.newDirectoryStream(Files.java:411)
+	at org.python.pydev.shared_core.io.FileUtils.getLastModifiedTimeFromDir(FileUtils.java:867)
+	at org.python.pydev.shared_core.path_watch.EventsStackerRunnable.run(EventsStackerRunnable.java:217)
+	at org.python.pydev.shared_core.path_watch.PathWatch$PollThread.run(PathWatch.java:193)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:23:15.991
+!MESSAGE /usr/lib64/python2.7/site-packages/markupsafe
+!STACK 0
+java.nio.file.AccessDeniedException: /usr/lib64/python2.7/site-packages/markupsafe
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:426)
+	at java.nio.file.Files.newDirectoryStream(Files.java:411)
+	at org.python.pydev.shared_core.io.FileUtils.getLastModifiedTimeFromDir(FileUtils.java:867)
+	at org.python.pydev.shared_core.path_watch.EventsStackerRunnable.run(EventsStackerRunnable.java:217)
+	at org.python.pydev.shared_core.path_watch.PathWatch$PollThread.run(PathWatch.java:193)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:23:16.478
+!MESSAGE /usr/lib/python2.7/site-packages/Jinja2-2.7.3-py2.7.egg-info
+!STACK 0
+java.nio.file.AccessDeniedException: /usr/lib/python2.7/site-packages/Jinja2-2.7.3-py2.7.egg-info
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:426)
+	at java.nio.file.Files.newDirectoryStream(Files.java:411)
+	at org.python.pydev.shared_core.io.FileUtils.getLastModifiedTimeFromDir(FileUtils.java:867)
+	at org.python.pydev.shared_core.path_watch.EventsStackerRunnable.run(EventsStackerRunnable.java:217)
+	at org.python.pydev.shared_core.path_watch.PathWatch$PollThread.run(PathWatch.java:193)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:23:16.483
+!MESSAGE /usr/lib/python2.7/site-packages/jinja2
+!STACK 0
+java.nio.file.AccessDeniedException: /usr/lib/python2.7/site-packages/jinja2
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:426)
+	at java.nio.file.Files.newDirectoryStream(Files.java:411)
+	at org.python.pydev.shared_core.io.FileUtils.getLastModifiedTimeFromDir(FileUtils.java:867)
+	at org.python.pydev.shared_core.path_watch.EventsStackerRunnable.run(EventsStackerRunnable.java:217)
+	at org.python.pydev.shared_core.path_watch.PathWatch$PollThread.run(PathWatch.java:193)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:23:17.182
+!MESSAGE /usr/lib/python2.7/site-packages/Werkzeug-0.8.3-py2.7.egg-info
+!STACK 0
+java.nio.file.AccessDeniedException: /usr/lib/python2.7/site-packages/Werkzeug-0.8.3-py2.7.egg-info
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:426)
+	at java.nio.file.Files.newDirectoryStream(Files.java:411)
+	at org.python.pydev.shared_core.io.FileUtils.getLastModifiedTimeFromDir(FileUtils.java:867)
+	at org.python.pydev.shared_core.path_watch.EventsStackerRunnable.run(EventsStackerRunnable.java:217)
+	at org.python.pydev.shared_core.path_watch.PathWatch$PollThread.run(PathWatch.java:193)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:23:17.188
+!MESSAGE /usr/lib/python2.7/site-packages/werkzeug
+!STACK 0
+java.nio.file.AccessDeniedException: /usr/lib/python2.7/site-packages/werkzeug
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:426)
+	at java.nio.file.Files.newDirectoryStream(Files.java:411)
+	at org.python.pydev.shared_core.io.FileUtils.getLastModifiedTimeFromDir(FileUtils.java:867)
+	at org.python.pydev.shared_core.path_watch.EventsStackerRunnable.run(EventsStackerRunnable.java:217)
+	at org.python.pydev.shared_core.path_watch.PathWatch$PollThread.run(PathWatch.java:193)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:23:18.061
+!MESSAGE /usr/lib/python2.7/site-packages/Flask-0.9-py2.7.egg-info
+!STACK 0
+java.nio.file.AccessDeniedException: /usr/lib/python2.7/site-packages/Flask-0.9-py2.7.egg-info
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:426)
+	at java.nio.file.Files.newDirectoryStream(Files.java:411)
+	at org.python.pydev.shared_core.io.FileUtils.getLastModifiedTimeFromDir(FileUtils.java:867)
+	at org.python.pydev.shared_core.path_watch.EventsStackerRunnable.run(EventsStackerRunnable.java:217)
+	at org.python.pydev.shared_core.path_watch.PathWatch$PollThread.run(PathWatch.java:193)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:23:18.064
+!MESSAGE /usr/lib/python2.7/site-packages/flask
+!STACK 0
+java.nio.file.AccessDeniedException: /usr/lib/python2.7/site-packages/flask
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:426)
+	at java.nio.file.Files.newDirectoryStream(Files.java:411)
+	at org.python.pydev.shared_core.io.FileUtils.getLastModifiedTimeFromDir(FileUtils.java:867)
+	at org.python.pydev.shared_core.path_watch.EventsStackerRunnable.run(EventsStackerRunnable.java:217)
+	at org.python.pydev.shared_core.path_watch.PathWatch$PollThread.run(PathWatch.java:193)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:29:51.947
+!MESSAGE /usr/lib64/python2.7/site-packages/SQLAlchemy-0.7.9-py2.7.egg-info
+!STACK 0
+java.nio.file.AccessDeniedException: /usr/lib64/python2.7/site-packages/SQLAlchemy-0.7.9-py2.7.egg-info
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:426)
+	at java.nio.file.Files.newDirectoryStream(Files.java:411)
+	at org.python.pydev.shared_core.io.FileUtils.getLastModifiedTimeFromDir(FileUtils.java:867)
+	at org.python.pydev.shared_core.path_watch.EventsStackerRunnable.run(EventsStackerRunnable.java:217)
+	at org.python.pydev.shared_core.path_watch.PathWatch$PollThread.run(PathWatch.java:193)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:29:51.951
+!MESSAGE /usr/lib64/python2.7/site-packages/sqlalchemy
+!STACK 0
+java.nio.file.AccessDeniedException: /usr/lib64/python2.7/site-packages/sqlalchemy
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newDirectoryStream(UnixFileSystemProvider.java:426)
+	at java.nio.file.Files.newDirectoryStream(Files.java:411)
+	at org.python.pydev.shared_core.io.FileUtils.getLastModifiedTimeFromDir(FileUtils.java:867)
+	at org.python.pydev.shared_core.path_watch.EventsStackerRunnable.run(EventsStackerRunnable.java:217)
+	at org.python.pydev.shared_core.path_watch.PathWatch$PollThread.run(PathWatch.java:193)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:31:31.441
+!MESSAGE ERROR reading shell.
+ProcessInfo:
+
+ - Executed: /usr/bin/python -u /home/user/.eclipse/org.eclipse.platform_4.4.1_1773823767_linux_gtk_x86_64/plugins/org.python.pydev_4.1.0.201505270003/pysrc/pycompletionserver.py 58354
+
+ - Environment:
+COLORTERM=1
+CONFIG_SITE=/usr/share/site/x86_64-unknown-linux-gnu
+CPU=x86_64
+CSHEDIT=emacs
+CVS_RSH=ssh
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-Rc2D8lW5de,guid=77fe3e28b6afeb70efaf074255746a74
+DESKTOP_SESSION=xfce
+DISPLAY=:0.0
+FROM_HEADER=
+GDMFLEXISERVER=/usr/lib/lightdm/gdmflexiserver
+GDMSESSION=xfce
+GEM_HOME=/home/user/.rvm/gems/ruby-2.1.5
+GEM_PATH=/home/user/.rvm/gems/ruby-2.1.5:/home/user/.rvm/gems/ruby-2.1.5@global
+GLADE_CATALOG_PATH=:/usr/share/glade3/catalogs
+GLADE_MODULE_PATH=:/usr/share/glade3/pixmaps
+GLADE_PIXMAP_PATH=:/usr/lib64/glade3/modules
+GNOME_KEYRING_CONTROL=/run/user/1000/keyring-c0OlFT
+GNOME_KEYRING_PID=1094
+GPG_AGENT_INFO=/run/user/1000/keyring-c0OlFT/gpg:0:1
+GPG_TTY=to nie jest terminal
+GTK_IM_MODULE=cedilla
+GTK_MODULES=canberra-gtk-module
+G_BROKEN_FILENAMES=1
+G_FILENAME_ENCODING=@locale,UTF-8,ISO-8859-2,CP1250
+HISTSIZE=1000
+HOME=/home/user
+HOST=linux-ntxh.site
+HOSTNAME=linux-ntxh.site
+HOSTTYPE=x86_64
+INPUTRC=/home/user/.inputrc
+IRBRC=/home/user/.rvm/rubies/ruby-2.1.5/.irbrc
+JAVA_BINDIR=/usr/lib64/jvm/jre/bin
+JAVA_HOME=/usr/lib64/jvm/jre
+JAVA_ROOT=/usr/lib64/jvm/jre
+JRE_HOME=/usr/lib64/jvm/jre
+LANG=pl_PL.utf8
+LC_CTYPE=pl_PL.UTF-8
+LD_LIBRARY_PATH=/usr/lib64/mpi/gcc/openmpi/lib64
+LESS=-M -I -R
+LESSCLOSE=lessclose.sh %s %s
+LESSKEY=/etc/lesskey.bin
+LESSOPEN=lessopen.sh %s
+LESS_ADVANCED_PREPROCESSOR=no
+LIBOVERLAY_SCROLLBAR=0
+LOGNAME=user
+MACHTYPE=x86_64-suse-linux
+MAIL=/var/spool/mail/user
+MANPATH=/usr/lib64/mpi/gcc/openmpi/share/man:/usr/local/man:/usr/share/man
+MINICOM=-c on
+MORE=-sl
+MY_RUBY_HOME=/home/user/.rvm/rubies/ruby-2.1.5
+NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat
+NNTPSERVER=news
+OSTYPE=linux
+PAGER=less
+PATH=/home/user/.rvm/gems/ruby-2.1.5/bin:/home/user/.rvm/gems/ruby-2.1.5@global/bin:/home/user/.rvm/rubies/ruby-2.1.5/bin:/usr/lib64/mpi/gcc/openmpi/bin:/home/user/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/home/user/.rvm/bin:/home/user/.rvm/bin
+PROFILEREAD=true
+PWD=/home/user
+PYTHONPATH=/home/user/.eclipse/org.eclipse.platform_4.4.1_1773823767_linux_gtk_x86_64/plugins/org.python.pydev_4.1.0.201505270003/pysrc/pydev_sitecustomize:/usr/lib64/python2.7:/usr/lib64/python2.7/plat-linux2:/usr/lib64/python2.7/lib-dynload:/usr/lib64/python2.7/site-packages:/usr/lib64/python2.7/site-packages/gtk-2.0:/usr/lib/python2.7/site-packages:/usr/lib/python2.7/site-packages/setuptools-17.0-py2.7.egg:/usr/lib/python2.7/site-packages/python_daemon-2.0.5-py2.7.egg:/usr/lib/python2.7/site-packages/lockfile-0.10.2-py2.7.egg:/home/user/python_workspace/python-daemon-2.0.5/.eggs/docutils-0.12-py2.7.egg:/usr/lib/python2.7/site-packages/urllib3-1.10.4-py2.7.egg:/usr/lib64/python2.7/lib-tk:/usr/lib/python2.7/site-packages/pywebuml-0.3.0-py2.7.egg:/usr/lib/python2.7/site-packages/unittest2-1.0.1-py2.7.egg:/usr/lib/python2.7/site-packages/Flask_SQLAlchemy-2.0-py2.7.egg:/usr/lib/python2.7/site-packages/six-1.9.0-py2.7.egg:/usr/lib/python2.7/site-packages/argparse-1.3.0-py2.7.egg
+PYTHONSTARTUP=/etc/pythonstart
+QT_IM_MODULE=xim
+QT_IM_SWITCHER=imsw-multi
+QT_SYSTEM_DIR=/usr/share/desktop-data
+RUBY_VERSION=ruby-2.1.5
+SESSION_MANAGER=local/linux-ntxh.site:@/tmp/.ICE-unix/1089,unix/linux-ntxh.site:/tmp/.ICE-unix/1089
+SHELL=/bin/bash
+SHLVL=1
+SSH_AUTH_SOCK=/run/user/1000/keyring-c0OlFT/ssh
+TERM=xterm
+TMPDIR=/tmp
+USER=user
+WINDOWMANAGER=/usr/bin/startxfce4
+XAUTHLOCALHOSTNAME=linux-ntxh.site
+XAUTHORITY=/run/lightdm/user/xauthority
+XCURSOR_THEME=DMZ
+XDG_CONFIG_DIRS=/etc/xdg:/etc/xdg
+XDG_DATA_DIRS=/usr/share/xfce:/usr/share:/usr/share
+XDG_MENU_PREFIX=xfce-
+XDG_RUNTIME_DIR=/run/user/1000
+XDG_SEAT=seat0
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+XDG_SESSION_COOKIE=d8e53e240f5c5f50b30d92055137280c-1433692785.513500-1564922829
+XDG_SESSION_ID=1
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+XDG_VTNR=7
+XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt
+XKEYSYMDB=/usr/X11R6/lib/X11/XKeysymDB
+XMODIFIERS=@im=local
+XNLSPATH=/usr/share/X11/nls
+XSESSION_IS_UP=yes
+_=/usr/bin/xfce4-session
+_system_arch=x86_64
+_system_name=OpenSuSE
+_system_type=Linux
+_system_version=12.3
+rvm_bin_path=/home/user/.rvm/bin
+rvm_loaded_flag=1
+rvm_path=/home/user/.rvm
+rvm_prefix=/home/user
+rvm_stored_umask=0022
+rvm_user_install_flag=1
+rvm_version=1.26.11 (latest)
+
+ - Working Dir:
+/usr/lib64/eclipse/eclipse/../../../../home/user/.eclipse/org.eclipse.platform_4.4.1_1773823767_linux_gtk_x86_64/plugins/org.python.pydev_4.1.0.201505270003/pysrc
+
+ - OS:
+Linux
+
+ - Std output:
+
+
+ - Err output:
+
+!STACK 0
+java.lang.RuntimeException: Shells are already finished for good, so, it is an invalid state to try to write to it.
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.write(AbstractShell.java:519)
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.writeAndGetResults(AbstractShell.java:691)
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.getImportCompletions(AbstractShell.java:756)
+	at org.python.pydev.editor.codecompletion.revisited.modules.CompiledModule.createTokensFromServer(CompiledModule.java:362)
+	at org.python.pydev.editor.codecompletion.revisited.modules.CompiledModule.<init>(CompiledModule.java:167)
+	at org.python.pydev.editor.codecompletion.revisited.SystemModulesManager.getBuiltinModule(SystemModulesManager.java:309)
+	at org.python.pydev.editor.codecompletion.revisited.SystemModulesManager.getModule(SystemModulesManager.java:348)
+	at com.python.pydev.analysis.additionalinfo.AbstractAdditionalDependencyInfo.updateKeysIfNeededAndSave(AbstractAdditionalDependencyInfo.java:236)
+	at com.python.pydev.analysis.system_info_builder.InterpreterInfoBuilder.synchInfoToPythonPath(InterpreterInfoBuilder.java:108)
+	at org.python.pydev.editor.codecompletion.revisited.SynchSystemModulesManager.synchronizeManagerToNameToInfoPythonpath(SynchSystemModulesManager.java:391)
+	at org.python.pydev.editor.codecompletion.revisited.SyncSystemModulesManagerScheduler$SynchJob.run(SyncSystemModulesManagerScheduler.java:260)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.python.pydev.shared_core 4 4 2015-06-08 02:31:31.449
+!MESSAGE Shells are already finished for good, so, it is an invalid state to try to restart a new shell.
+!STACK 0
+java.lang.RuntimeException: Shells are already finished for good, so, it is an invalid state to try to restart a new shell.
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.restartShell(AbstractShell.java:645)
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.writeAndGetResults(AbstractShell.java:703)
+	at org.python.pydev.editor.codecompletion.shell.AbstractShell.getImportCompletions(AbstractShell.java:756)
+	at org.python.pydev.editor.codecompletion.revisited.modules.CompiledModule.createTokensFromServer(CompiledModule.java:362)
+	at org.python.pydev.editor.codecompletion.revisited.modules.CompiledModule.<init>(CompiledModule.java:167)
+	at org.python.pydev.editor.codecompletion.revisited.SystemModulesManager.getBuiltinModule(SystemModulesManager.java:309)
+	at org.python.pydev.editor.codecompletion.revisited.SystemModulesManager.getModule(SystemModulesManager.java:348)
+	at com.python.pydev.analysis.additionalinfo.AbstractAdditionalDependencyInfo.updateKeysIfNeededAndSave(AbstractAdditionalDependencyInfo.java:236)
+	at com.python.pydev.analysis.system_info_builder.InterpreterInfoBuilder.synchInfoToPythonPath(InterpreterInfoBuilder.java:108)
+	at org.python.pydev.editor.codecompletion.revisited.SynchSystemModulesManager.synchronizeManagerToNameToInfoPythonpath(SynchSystemModulesManager.java:391)
+	at org.python.pydev.editor.codecompletion.revisited.SyncSystemModulesManagerScheduler$SynchJob.run(SyncSystemModulesManagerScheduler.java:260)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2015-06-08 02:58:08.322 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=pl_PL
+Framework arguments:  -product org.eclipse.epp.package.standard.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.standard.product
+
+!ENTRY org.eclipse.jface 2 0 2015-06-08 02:58:56.016
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2015-06-08 02:58:56.016
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@758a1121,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(com.python.pydev.analysis.actions.pyGlobalsBrowserWorkbench,Python Show Global Tokens (Global),
+		Python Show Global Tokens (Global),
+		Category(org.python.pydev.ui.category.source,PyDev - Editor,PyDev editor category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3b6ac9d0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.python.pydev.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.python.pydev.editor.actions.pyShowBrowser,Python Show Global Tokens (Editor),
+		Python Show Global Tokens (Editor),
+		Category(org.python.pydev.ui.category.source,PyDev - Editor,PyDev editor category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5fe79529,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.python.pydev.ui.editor.scope,,,system)

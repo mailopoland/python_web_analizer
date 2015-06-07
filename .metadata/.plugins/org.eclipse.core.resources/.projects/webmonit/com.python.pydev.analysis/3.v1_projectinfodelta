@@ -1,0 +1,15 @@
+INSTUPwebanalizer.page_analizer
+/home/user/python_project/python_web_analizer/webmonit/webanalizer/page_analizer.py
+INFOS:&&1|1|2|0&&2|3|2|1&&3|4|2|5&&2|6|2|1&&2|7|2|1&&2|8|2|1&&3|9|2|10&&3|11|2|10&&3|12|2|10
+last_ver=12
+check=6
+PageAnalizer.file_name=5
+result_cmd=7
+PageAnalizer.__download_site__=10
+file_name=3
+webanalizer.page_analizer=2
+cur_ver=11
+__download_site__=8
+PageAnalizer=1
+cur_file_name=4
+site_url=9
