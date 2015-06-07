@@ -6,8 +6,11 @@ class Settings(object):
     def __main_path__(self):
         return os.path.join( os.path.dirname(os.path.realpath(__file__)), os.path.pardir) + "/"
     
+    def pid_name(self):
+        return '.webanalizer.pid'
+    
     def process(self):
-        return self.__main_path__() + 'temp/webanalizer.pid'
+        return self.temp_dir() + self.pid_name()
     
     def result(self):
         return self.__main_path__() + 'result/webanalizer.log'
@@ -24,8 +27,8 @@ class Settings(object):
     def temp_dir(self):
         return self.__main_path__() + 'temp/'
     
-    def system_errors_name(self):
-        return "system_errors"
+    def system_log_name(self):
+        return "system_logs"
     
     # change in production version
     def is_debug(self):

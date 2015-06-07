@@ -1,0 +1,25 @@
+from loggers.system_logger import SystemLogger
+
+class CheckCommands(object):
+    
+    def check(self, cmd):
+        try:
+            result = eval(cmd, {"__builtins__":None}, self.__commands__())
+        except Exception as e:
+            SystemLogger().report_error("Error during check conditions: " + cmd + " for:" + self.__site_url__ + " Error msg:" + e)
+            result = False
+        
+        if(result == True):
+            return 0
+        else:
+            return 1
+    
+    def __message__(self, txt):
+        return txt
+    
+    def __commands__(self):
+        return  {
+                 'MESSAGE' : self.__message__
+                }
+    
+    

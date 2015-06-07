@@ -1,10 +1,12 @@
 '''
 Settings handler, it interpret commands.settings from settings. 
-It is here because only webanalizer need this interpretation.
+Also it removes unnecessary files after parsing
 '''
+import os
 import sys
 from settings.settings import Settings
 from loggers.system_logger import SystemLogger
+from webanalizer.page_analizer import PageAnalizer
 
 class SettingsHandler(object):
     
@@ -26,6 +28,7 @@ class SettingsHandler(object):
         except Exception:
             SystemLogger().report_error("Problem with access to " + Settings().instructions() + " file.")
             return
+        
         result = self.__parse_instructions__(content)
         if not(result[0] == 0):
             if result[0] == 1:
@@ -45,12 +48,20 @@ class SettingsHandler(object):
     # result_code: 0 - OK, 1 - no find or wrong file to save, 2 - no find or wrong commands, 3 
     def __parse_instructions__(self, content):
         self.instructions = dict()
+        # will be populated which files needed for current settings (remove any others)
+        exsisted_files = []
+        exsisted_files.append("__init__.py")
+        exsisted_files.append(Settings().pid_name())
         lencont = len(content)
         it = 0
         try:
             # skip comments
             while(it < lencont and len(content[it]) > 1 and content[it][0] == '#'):
                 it += 1
+                
+            # for create name of files with saved pages
+            name_creator = PageAnalizer()
+            
             while it < lencont:
                     
                 cur_page = content[it]
@@ -78,8 +89,25 @@ class SettingsHandler(object):
                     command = cur_line[1:separator]
                     result = cur_line[separator + 1:]
                     self.instructions[cur_page][cur_result].append((command,result))
+                    exsisted_files.append(name_creator.file_name(cur_page, command, result))
                     it += 1
         except Exception:
             return(3,it)
+        
+        self.__remove_other_files__(exsisted_files)
+        
         # it means operation finish with success
         return (0,0)
+    
+    # remove files from Settings().temp_dir() which aren't in files array
+    def __remove_other_files__(self, need_files_array):
+        need_files = set(need_files_array)
+        all_files = os.listdir(Settings().temp_dir())
+        for cur_file in all_files:
+            if(not(cur_file in need_files)):
+                try:
+                    os.remove(Settings().temp_dir() + cur_file)
+                except Exception as e:
+                    SystemLogger().report_error("Error during try delete unneeded file " + cur_file + " Error msg: " + e)
+                    
+                   

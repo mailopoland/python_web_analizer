@@ -5,6 +5,7 @@ from webanalizer.settings_handler import SettingsHandler
 from page_analizer import PageAnalizer
 from loggers.system_logger import SystemLogger
 from loggers.system_logger import Logger
+from settings.settings import Settings
 
 class AllsitesAnalizer(object):
     
@@ -30,10 +31,20 @@ class AllsitesAnalizer(object):
                     if(analize_result == 0):
                         self.__system_logger__.report_debug("Log for them change")
                         Logger(site, result_file).report(analizer.result_cmd(result_action))
+                        # save cur version of page for next checks
+                        self.__save_new_version__(analizer.cur_file_name, analizer.cur_ver)
                     # fail, some error (1 means success but nothing was changed as request rule ask)
                     elif(analize_result != 1):
                         self.__get_system_logger__().report_error(analize_result)
-                 
+     
+    def __save_new_version__(self, filename, version):
+        try:
+            # write current site version (for next checks)
+            with open(Settings().temp_dir() + filename, "w+") as f:
+                f.write(version)
+        except Exception:
+            self.__get_system_logger__().report_error("Error during save " + filename + ". Wrong access permissions?")
+                
     def __get_system_logger__(self):
 #        if self.__system_logger__ is None:
 #            self.__system_logger__ = SystemLogger()

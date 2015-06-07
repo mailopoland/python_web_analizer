@@ -1,1 +1,1 @@
-INSloggers.system_logger|/home/user/python_project/python_web_analizer/webmonit/loggers/system_logger.py
+INSwebdaemon.admin_daemon|/home/user/python_project/python_web_analizer/webmonit/webdaemon/admin_daemon.py

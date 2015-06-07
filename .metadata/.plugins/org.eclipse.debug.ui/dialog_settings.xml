@@ -11,23 +11,23 @@
 		<item value="1|Sans|10.104167|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATIONS_DIALOG_SECTION">
-		<item value="1407" key="DIALOG_WIDTH"/>
+		<item value="1389" key="DIALOG_WIDTH"/>
 		<item value="org.python.pydev.debug.regularLaunchConfigurationType, " key="org.eclipse.debug.ui.EXPANDED_NODES"/>
-		<item value="665" key="DIALOG_HEIGHT"/>
+		<item value="875" key="DIALOG_HEIGHT"/>
 		<item value="237" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_1"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="762" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_2"/>
-		<item value="1|Sans|10.104167|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.debug.ui.SELECT_LAUNCH_SHORTCUT_DIALOG">
-		<item value="304" key="DIALOG_WIDTH"/>
+		<item value="292" key="DIALOG_WIDTH"/>
 		<item value="426" key="DIALOG_HEIGHT"/>
-		<item value="1|Sans|10.208333|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="1|Sans|10.206185|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="FAVORITES_DIALOG_SECTION">
 		<item value="350" key="DIALOG_WIDTH"/>
 		<item value="173" key="DIALOG_Y_ORIGIN"/>
-		<item value="400" key="DIALOG_HEIGHT"/>
 		<item value="627" key="DIALOG_X_ORIGIN"/>
+		<item value="400" key="DIALOG_HEIGHT"/>
 		<item value="1|Sans|10.104167|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>

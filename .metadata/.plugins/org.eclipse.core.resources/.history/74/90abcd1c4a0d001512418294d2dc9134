@@ -1,0 +1,107 @@
+'''
+Settings handler, it interpret commands.settings from settings. 
+Also it removes unnecessary files after parsing
+'''
+import os
+import sys
+from settings.settings import Settings
+from loggers.system_logger import SystemLogger
+from webanalizer.page_analizer import PageAnalizer
+
+class SettingsHandler(object):
+    
+    '''
+    After create SettingsHandler object self.instructions has dictionary contains all important webanalizing settings:
+    self.instructions["site address"]["name of result file"] <- it's array
+    the array contains tuples ("check actions as string", "result action as string")
+    '''
+
+
+    def __init__(self):
+        self.instructions = None
+        try:
+            with open( Settings().instructions() ) as instr:
+                content = []
+                for line in instr:
+                    # remove white chars
+                    content.append(line.rstrip())
+        except Exception:
+            SystemLogger().report_error("Problem with access to " + Settings().instructions() + " file.")
+            return
+        
+        result = self.__parse_instructions__(content)
+        if not(result[0] == 0):
+            if result[0] == 1:
+                error = "Error in " + Settings().instructions() + " file at line " + str(result[1]) + ". No find or wrong file to save result."
+            elif result[0] == 2:
+                error = "Error in " + Settings().instructions() + " file at line " + str(result[1]) + ". No find or wrong commands for defined website."
+            elif result[0] == 3:
+                error = "Unknown error during parse " + Settings().instructions() + " file at line " + str(result[1]) + "."
+            else:
+                error = "Unknown error during parse " + Settings().instructions() + " file."
+            SystemLogger().report_error(error)
+            sys.exit()
+                
+        
+    # polute self.instructions
+    # return tuple (result_code, if result is wrong wrong line's number)   
+    # result_code: 0 - OK, 1 - no find or wrong file to save, 2 - no find or wrong commands, 3 
+    def __parse_instructions__(self, content):
+        self.instructions = dict()
+        # will be populated which files needed for current settings (remove any others)
+        exsisted_files = {}
+        exsisted_files.append("__init__.py")
+        lencont = len(content)
+        it = 0
+        try:
+            # skip comments
+            while(it < lencont and len(content[it]) > 1 and content[it][0] == '#'):
+                it += 1
+                
+            # for create name of files with saved pages
+            name_creator = PageAnalizer()
+            
+            while it < lencont:
+                    
+                cur_page = content[it]
+                it += 1
+                # no more els, it is error here, should be result file name
+                if(it == lencont):
+                    return (1,it)
+                cur_result = content[it]
+                it += 1
+                
+                # populate main dict if page not exsist, it contains result dicts (with commands)
+                if not(cur_page in self.instructions):
+                    self.instructions[cur_page] = dict()
+                
+                # create result dict if it not exsist, it contains commands
+                if not(cur_result in self.instructions[cur_page]):
+                    self.instructions[cur_page][cur_result] = []
+                    
+                while(it < lencont and content[it][0] == "\\" ):
+                    cur_line = content[it]
+                    separator = cur_line.index(':')
+                    # if it not has separator or not has result action after separator
+                    if( separator == -1 or separator + 1 > len(cur_line) ):
+                        return (2,it)
+                    command = cur_line[1:separator]
+                    result = cur_line[separator + 1:]
+                    self.instructions[cur_page][cur_result].append((command,result))
+                    exsisted_files.append(name_creator(cur_page, command, result))
+                    it += 1
+        except Exception:
+            return(3,it)
+        
+        self.__remove_other_files__(exsisted_files)
+        
+        # it means operation finish with success
+        return (0,0)
+    
+    # remove files from Settings().temp_dir() which aren't in files array
+    def __remove_other_files__(self, need_files):
+        all_files = os.listdir(Settings().temp_dir())
+        for f in all_files:
+            if(not(f in need_files):
+               try:
+                   

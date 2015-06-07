@@ -1,0 +1,31 @@
+import hashlib
+from loggers.system_logger import SystemLogger
+
+class CheckCommands(object):
+
+    def __init__(self, prev_ver, cur_ver):
+        self.prev_ver = prev_ver
+        self.cur_ver = cur_ver
+        
+    def __site_changed__(self):
+        result = hashlib.md5(self.cur_ver) == hashlib.md5(self.prev_ver)
+        return result
+    
+    def __commands__(self):
+        return  {
+                 'SITE_CHANGED' : self.site_changed
+                }
+    # site_url for error logging
+    def checkCmd(self, cmd, site_url):
+        try:
+            result = eval(cmd, {"__builtins__":None}, self.__commands__())
+        except Exception as e:
+            SystemLogger().report_error("Error during check conditions: " + cmd + " for:" + site_url + " Error msg:" + e)
+            result = False
+        
+        if(result == True):
+            return 0
+        else:
+            return 1
+    
+    

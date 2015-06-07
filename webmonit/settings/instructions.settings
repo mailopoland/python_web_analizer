@@ -16,7 +16,7 @@
 # For example this line is correct: 
 # / SITE_CHANGED() and not(CONTAINS("Bad request"))  : MESSAGE("We have a change!")
 # ------------------------------------------------
-# Example (to worinkg remove '# '):
+# EXAMPLE (to worinkg remove '# '):
 # http://site.com/index.html
 # index.log
 # \ SITE_CHANGED() : MESSAGE("We have a change!")
@@ -31,7 +31,7 @@
 # ------------------------------------------------
 http://localhost:63342/www_dla_webmonitoringu/src/index.html
 index.log
-\ SITE_CHANGED() : MESSAGE("Zmienila sie strona index")
+\ SITE_CHANGED() and CONTAINS("lubie placki") : MESSAGE("Zmienila sie strona index")
 http://localhost:63342/www_dla_webmonitoringu/src/advanced.html
 adv.log
 \ SITE_CHANGED() : MESSAGE("Zmienila sie strona adv")

@@ -2,12 +2,13 @@ import time
 import sys
 import os
 
-#tell that in webmonitoring folder this module should looking for others modules
+# tell that in webmonitoring folder this module should looking for others modules
 sys.path.append(os.path.join( os.path.dirname(os.path.realpath(__file__)), os.path.pardir))
 
 from daemon import runner
 from settings.settings import Settings
 from webanalizer.allsites_analizer import AllsitesAnalizer
+from loggers.system_logger import SystemLogger
 
 class Webdaemon(object):
     
@@ -19,8 +20,10 @@ class Webdaemon(object):
         self.pidfile_timeout = 5
             
     def run(self):
+        log = SystemLogger()
         analizer = AllsitesAnalizer()
         while True:
+            log.report("Daemon run checking iteration")
             # this class run settings analyzer and base on it run website's changes checker 
             analizer.analize()
             time.sleep(3)

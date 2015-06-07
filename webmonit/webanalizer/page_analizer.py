@@ -1,13 +1,18 @@
 import urllib3, os.path
 from settings.settings import Settings
 from webanalizer.check_commands import CheckCommands
-from loggers.system_logger import SystemLogger
+from webanalizer.result_commands import ResultCommands
 
 class PageAnalizer(object):        
     
+    # create unique name of saved page (old state of it)
+    def file_name(self, site_url, check_cmd, result_cmd):
+        # put only allowed characters and add unique code (based on check and result commands)
+        self.cur_file_name = site_url.replace("/","|") + str(hash(check_cmd)) + str(hash(result_cmd))
+        return self.cur_file_name
     
     def check(self, site_url, check_cmd, result_cmd):
-        last_ver_file_name = site_url.replace("/","|") + str(hash(check_cmd)) + str(hash(result_cmd))
+        last_ver_file_name = self.file_name(site_url, check_cmd, result_cmd)
         result_download_site = self.__download_site__(site_url, last_ver_file_name)
         # download first 
         if(result_download_site == 1):
@@ -16,32 +21,11 @@ class PageAnalizer(object):
         if(result_download_site != 0):
             return result_download_site
         
-        commands = CheckCommands(self.last_ver, self.cur_ver)
-        try:
-            x = 1
-            res = eval('x+1')
-            #res2 = eval('commands.site_changed()')
-            #res3 = eval("SITE_CHANGED()",{"__builtins__":None},{"SITE_CHANGED()", commands.site_changed})
-            
-            zmienna = {
-                       'SITE_CHANGED' : commands.site_changed
-                       }
-            
-            
-            res4 = eval(" SITE_CHANGED() or not(SITE_CHANGED())", {}, zmienna)
-            result = eval(check_cmd, {"__builtins__":None}, zmienna)
-        except Exception as e:
-            SystemLogger().report_error("Error during check conditions: " + check_cmd + " for:" + site_url + " Error msg:" + e)
-            result = False
-        if(result == True):
-            return 0
-        else:
-            return 1
+        return CheckCommands(self.last_ver, self.cur_ver, self.site_url).check(check_cmd)        
     
     def result_cmd(self, cmd):
         
-        # todo evaluate cmd and return result (you can start from it I think, not from check
-        return cmd
+        return ResultCommands(self.site_url).get_msg(cmd)
         
     # return 0: is OK (site was download before), 1: is OK (but site didn't was download before), any_other: return msg with error
     def __download_site__(self,site_url,file_url):
@@ -62,7 +46,7 @@ class PageAnalizer(object):
             try:
                 with open(last_file) as f:
                     # save old version to variable
-                    self.last_ver = f.read().replace('\n', '')
+                    self.last_ver = f.read()
             except Exception:
                 return "Error during open " + last_file + ". Wrong access permissions?"
             return 0

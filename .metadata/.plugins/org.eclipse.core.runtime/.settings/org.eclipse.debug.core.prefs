@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="last_ver_file_name"/>\n<expression enabled\="true" text\="Exception"/>\n<expression enabled\="true" text\="self.__system_logger__ is None"/>\n<expression enabled\="true" text\="e"/>\n</watchExpressions>\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="last_ver_file_name"/>\n<expression enabled\="true" text\="Exception"/>\n</watchExpressions>\n

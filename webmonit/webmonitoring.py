@@ -2,7 +2,6 @@ import sys
 
 from webdaemon.admin_daemon import AdminDaemon
 from webanalizer.allsites_analizer import AllsitesAnalizer
-from settings.settings import Settings
 
 def main(argv):
     if len(argv) == 1:

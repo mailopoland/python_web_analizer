@@ -11,5 +11,6 @@ KEYWORD_COLOR=41,95,148
 NUMBER_COLOR=175,15,145
 PYDEV_FUNDING_SHOWN_2014=true
 SELF_COLOR=88,88,88
+SOURCE_LOCATION_PATHS=/home/user/python_project/python_web_analizer/webmonit/<string>,DONTASK
 STRING_COLOR=49,126,204
 eclipse.preferences.version=1

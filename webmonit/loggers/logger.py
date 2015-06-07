@@ -11,7 +11,8 @@ class Logger(object):
         else:
             lvl = logging.INFO
         self.logger.setLevel(lvl)
-        formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+        # formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+        formatter = logging.Formatter("%(asctime)s - %(name)s - %(message)s")
         # Reset the logger.handlers if it already exists.
         
         handler = logging.FileHandler(settings.result_dir() + file_name)

@@ -4,9 +4,9 @@
 		<section name="DialogBoundsSettings">
 			<item value="339" key="DIALOG_WIDTH"/>
 			<item value="0" key="DIALOG_Y_ORIGIN"/>
-			<item value="100" key="DIALOG_X_ORIGIN"/>
 			<item value="322" key="DIALOG_HEIGHT"/>
-			<item value="1|Sans|10.104167|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+			<item value="100" key="DIALOG_X_ORIGIN"/>
+			<item value="1|Sans|10.206185|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		</section>
 	</section>
 	<section name="pydev_completion_proposal_size">
