@@ -1,0 +1,43 @@
+# ------------------------------------------------
+# INSTRUCTION HAVE TO LOOK LIKE:
+# [website adress]
+# [name of file which contains result of monitoring the website]
+# (any numbers of lines described below:)
+# \ [one or more of available check instuctions] : [one of available result instuctions]
+# ------------------------------------------------
+# Available check instructions:
+# SITE_CHANGED() <- do result action if site is changed
+# CONTAINS("text") <- do result action if site contains "text"
+# CONTAINS_MANY("text",5) <- do result action if site contains "text" 5 times (not overlapping)
+# IN_HTML_EL("body","text") <- do result action if site contains "text" in first <body> element
+# IN_HTML_EL_MANY("body","text",5) <- do result action if site contains "text" in first <body> element 5 times (not overlapping) 
+# ------------------------------------------------
+# Available result instructions:
+# MESSAGE("any text") <- write to result file message "any tex"
+# DISPLAY_DIFFERENCES() <- write to result file content with mark changes
+# ------------------------------------------------
+# To use in check instructions negation or more than one instructions you have to use logical operators: 'not(content)', 'or', 'and' and parentheses: '(', ')'
+# To contant result msg use '+'
+# For example this line is correct: 
+# / SITE_CHANGED() and not(CONTAINS("Bad request"))  : MESSAGE("We have a change!") + DISPLAY_DIFFERENCES
+# ------------------------------------------------
+# EXAMPLE (to worinkg remove '# '):
+# http://site.com/index.html
+# index.log
+# \ SITE_CHANGED() : MESSAGE("We have a change!")
+# \ CONTAINS("Important data") : MESSAGE("Still has important data")
+# http://site.pl/advanced.html
+# adv.log
+# \ SITE_CHANGED() : MESSAGE("Advanced change")
+# ------------------------------------------------
+# REMEMBER:
+# WHITE CHARACTERS IN WEBSITE ADRESS AND RESULT FILE NAME ARE FORBRIDDEN
+# YOU CANNOT PUT ANY COMMENTS OR EMPTY LINE BELOW:
+# ------------------------------------------------
+http://localhost:63342/www_dla_webmonitoringu/src/index.html
+index.log
+\ SITE_CHANGED() and CONTAINS("lubie placki") : MESSAGE("Zmienila sie strona index")
+http://localhost:63342/www_dla_webmonitoringu/src/advanced.html
+adv.log
+\ IN_HTML_EL("title","tytul") : MESSAGE("Dziala IN_HTML_EL")
+\ IN_HTML_EL("title","cialo") : MESSAGE("Znalazl w zlym miejscu")

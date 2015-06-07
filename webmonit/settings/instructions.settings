@@ -7,14 +7,19 @@
 # ------------------------------------------------
 # Available check instructions:
 # SITE_CHANGED() <- do result action if site is changed
-# CONTAINS("any text") <- do result action if site contains "any text"
+# CONTAINS("text") <- do result action if site contains "text"
+# CONTAINS_MANY("text",5) <- do result action if site contains "text" 5 times (not overlapping)
+# IN_HTML_EL("body","text") <- do result action if site contains "text" in first <body> element
+# IN_HTML_EL_MANY("body","text",5) <- do result action if site contains "text" in first <body> element 5 times (not overlapping) 
 # ------------------------------------------------
 # Available result instructions:
 # MESSAGE("any text") <- write to result file message "any tex"
+# DISPLAY_DIFFERENCES() <- write to result file content with mark changes
 # ------------------------------------------------
 # To use in check instructions negation or more than one instructions you have to use logical operators: 'not(content)', 'or', 'and' and parentheses: '(', ')'
+# To contant result msg use '+'
 # For example this line is correct: 
-# / SITE_CHANGED() and not(CONTAINS("Bad request"))  : MESSAGE("We have a change!")
+# / SITE_CHANGED() and not(CONTAINS("Bad request"))  : MESSAGE("We have a change!") + DISPLAY_DIFFERENCES
 # ------------------------------------------------
 # EXAMPLE (to worinkg remove '# '):
 # http://site.com/index.html
@@ -34,4 +39,5 @@ index.log
 \ SITE_CHANGED() and CONTAINS("lubie placki") : MESSAGE("Zmienila sie strona index")
 http://localhost:63342/www_dla_webmonitoringu/src/advanced.html
 adv.log
-\ SITE_CHANGED() : MESSAGE("Zmienila sie strona adv")
+\ IN_HTML_EL_MANY("title","tytul",2) : MESSAGE("IN_HTML_EL_MANY -> zle")
+\ IN_HTML_EL_MANY("title","tytul",3) : MESSAGE("IN_HTML_EL_MANY -> dobrze")

@@ -25,7 +25,7 @@ class PageAnalizer(object):
     
     def result_cmd(self, cmd):
         
-        return ResultCommands(self.site_url).get_msg(cmd)
+        return ResultCommands(self.last_ver, self.cur_ver, self.site_url).get_msg(cmd)
         
     # return 0: is OK (site was download before), 1: is OK (but site didn't was download before), any_other: return msg with error
     def __download_site__(self,site_url,file_url):

@@ -16,7 +16,8 @@ class Webdaemon(object):
         self.stdin_path = '/dev/null'
         self.stdout_path = '/dev/tty'
         self.stderr_path = '/dev/tty'
-        self.pidfile_path =  Settings().process()
+        self.settings = Settings()
+        self.pidfile_path =  self.settings.process()
         self.pidfile_timeout = 5
             
     def run(self):
@@ -26,7 +27,9 @@ class Webdaemon(object):
             log.report("Daemon run checking iteration")
             # this class run settings analyzer and base on it run website's changes checker 
             analizer.analize()
-            time.sleep(3)
+            repeart_time = self.settings.get_daemon_time()
+            log.report_debug("Loading repeart time for daemon, value: " + str(repeart_time))
+            time.sleep(repeart_time)
     
 app = Webdaemon()
 daemon_runner = runner.DaemonRunner(app)
