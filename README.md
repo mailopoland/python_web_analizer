@@ -1,8 +1,7 @@
 # python_web_analizer
 
 
-1) Demon notyfikacji www. Demon (aplikacja nadzorująca, działająca w tle w systemie) który będzie nadzorować zadane strony www i pozwoli wykonywać określone akcje gdy strona się zmieni w określony sposób. Możemy więc dodawać zasady według składni określonej w pkt 3.
-
+1) Demon notyfikacji www. Demon (aplikacja nadzorująca, działająca w tle w systemie) który będzie nadzorować zadane strony www i pozwoli wykonywać określone akcje gdy strona się zmieni w określony sposób. Możemy więc dodawać zasady według składni określonej w pkt 3. 
 
 2) Aplikacje uruchamiamy poprzez plik webmonitoring.py (komenda: "python webmonitoring.py"). Aplikacja musi mieć prawa zapisu do swoich katalogów: temp oraz result
 
@@ -13,7 +12,13 @@ a) Aby uzyskać dostępne komendy należy uruchomić aplikacje poprzez: "python 
 
 (SITE CHANGED) AND (TEXT CONTAINS “oceny”) -> MESSAGE(“Sa oceny!”)
 
+4) Wymagania:
+- System operacyjny linux
+- Python 3 (zalecana wersja 3.4.3+)
+- Dodatkowe biblioteki z pkt 5
 
-4) Użyte dodatkowe biblioteki
+5) Użyte dodatkowe biblioteki
 - python-daemon 2.0.5 (https://pypi.python.org/pypi/python-daemon)
 - urllib3 1.10.4 (https://pypi.python.org/pypi/urllib3)
+
+6) Projekt pisany w Eclipse Luna 4.4.1 z PyDev 4.1.0. Folder .metadata umożliwia otworzenie w ww. IDE projektu.

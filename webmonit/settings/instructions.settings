@@ -23,7 +23,7 @@
 # \ CONTAINS("Important data") : MESSAGE("Still has important data")
 # http://site.pl/advanced.html
 # adv.log
-# \ SITE CHANGED() : MESSAGE("Advanced change")
+# \ SITE_CHANGED() : MESSAGE("Advanced change")
 # ------------------------------------------------
 # REMEMBER:
 # WHITE CHARACTERS IN WEBSITE ADRESS AND RESULT FILE NAME ARE FORBRIDDEN
@@ -34,4 +34,4 @@ index.log
 \ SITE_CHANGED() : MESSAGE("Zmienila sie strona index")
 http://localhost:63342/www_dla_webmonitoringu/src/advanced.html
 adv.log
-\ SITE CHANGED() : MESSAGE("Zmienila sie strona adv")
+\ SITE_CHANGED() : MESSAGE("Zmienila sie strona adv")

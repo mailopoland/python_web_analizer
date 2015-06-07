@@ -26,3 +26,7 @@ class Settings(object):
     
     def system_errors_name(self):
         return "system_errors"
+    
+    # change in production version
+    def is_debug(self):
+        return True;

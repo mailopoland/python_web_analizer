@@ -19,8 +19,10 @@ class AdminDaemon(object):
             print("Can't start because daemon is already run\n")
         else:
             if(os.system("python " + Settings().webdaemon() + " start") == 0):
-                print("Daemon is starting...\n")
-                time.sleep(1)
+                print("Daemon is starting...")
+                time.sleep(0.1)
+                # newline
+                print("")
             else:
                 print("Daemon start failed\n")
         

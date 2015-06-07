@@ -1,0 +1,14 @@
+from logger import Logger
+from settings.settings import Settings
+
+class SystemLogger(Logger):
+
+    def set(self):
+        settings = Settings()
+        super(SystemLogger, self).set(settings.system_errors_name(), settings.system_errors_name() + ".log")
+    
+    def report_error(self, txt):
+        self.logger.error(txt)
+        
+    def report_debug(self, txt):
+        self.logger.debug(txt) 

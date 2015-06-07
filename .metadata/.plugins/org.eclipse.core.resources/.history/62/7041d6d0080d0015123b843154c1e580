@@ -1,0 +1,24 @@
+from settings.settings import Settings
+from system_logger import SystemLogger
+import logging
+
+
+class Logger(object):
+
+    def __init__(self, logger_name, file_name):
+        settings = Settings()
+        self.logger = logging.getLogger(logger_name)
+        if(settings.is_debug()):
+            lvl = logging.DEBUG
+        else:
+            lvl = logging.INFO
+        self.logger.setLevel(lvl)
+        formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+        handler = logging.FileHandler(settings.result_dir() + file_name)
+        handler.setFormatter(formatter)
+        self.logger.addHandler(handler)
+        
+    def report(self, txt):
+        SystemLogger().report_debug(txt)
+        self.logger.info(txt)
+        
